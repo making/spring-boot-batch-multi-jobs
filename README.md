@@ -201,6 +201,7 @@ $ cf curl /v3/service_bindings
    ]
 }
 $ cf curl -X DELETE /v3/service_bindings/88684788-de01-41c7-bb27-d399c266350a
+## cf curl -X DELETE `cf curl /v3/service_bindings | jq  -r .resources[0].links.self.href`
 
 $ cf v3-delete hello-batch
 Deleting app hello-batch...
