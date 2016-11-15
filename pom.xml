@@ -5,7 +5,7 @@
 
     <groupId>com.example</groupId>
     <artifactId>cf-spring-batch-demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1.RELEASE</version>
     <packaging>jar</packaging>
 
     <name>cf-spring-batch-demo</name>
