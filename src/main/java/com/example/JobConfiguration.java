@@ -44,8 +44,23 @@ class JobConfiguration {
 	}
 
 	@Bean
-	Job job() {
-		return this.jobBuilderFactory.get("job").incrementer(new RunIdIncrementer())
+	Job job1() {
+		return this.jobBuilderFactory.get("job1").incrementer(new RunIdIncrementer())
 				.start(step1()).next(step2()).build();
+	}
+
+	@Bean
+	Step anotherStep() {
+		return this.stepBuilderFactory.get("anotherStep")
+				.tasklet((contribution, chunkContext) -> {
+					System.out.println("Yet another Tasklet!");
+					return RepeatStatus.FINISHED;
+				}).build();
+	}
+
+	@Bean
+	Job job2() {
+		return this.jobBuilderFactory.get("job2").incrementer(new RunIdIncrementer())
+				.start(anotherStep()).build();
 	}
 }
